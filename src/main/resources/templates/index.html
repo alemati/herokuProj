@@ -8,11 +8,11 @@
     <body>
         <h2>Tervetuloa ravintolaan!</h2>
 
-        <h3>Raaka-aineiden luettelo:</h3>
+        <h3>Raaka-aineiden luettelo: "@{~/poisto/{raakaAineId}(raakaAineId=${raakaAine.id})}"</h3>
         
         <ul>
             <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
-            <form method="POST" th:action="@{~/poisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block">
+            <form method="POST" th:action="/poisto/{raakaAineId}(raakaAineId=${raakaAine.id})" style="display: inline-block">
                     <input type="submit" value="Poista"/>
             </form>
             </li>
