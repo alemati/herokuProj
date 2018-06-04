@@ -8,7 +8,7 @@
     <body>
         <h2>Tervetuloa ravintolaan!</h2>
 
-        <h3>Raaka-aineiden luettelo: "@{~/poisto/{raakaAineId}(raakaAineId=${raakaAine.id})}"</h3>
+        <h3>Raaka-aineiden luettelo:</h3>
         
         <ul>
             <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
