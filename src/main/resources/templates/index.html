@@ -9,10 +9,17 @@
                     background-color: lightblue;
                 }
 
-                h1,h2,h3,h4,p,span {
+                h1,h2,h3,h4,p,span,ul,form {
                     color: white;
                     text-align: center;
                 }
+
+                .button1 {
+                    background-color: white; 
+                    color: black; 
+                    border: 2px solid #4CAF50;
+                }
+
                 .button3 {
                     background-color: white; 
                     color: black; 
@@ -23,9 +30,9 @@
     </head>
 
     <body>
-        <h2>Tervetuloa ravintolaan!</h2>
+        <h1>Tervetuloa ravintolaan!</h1>
 
-        <h3>Raaka-aineiden luettelo:</h3>
+        <h2>Raaka-aineiden luettelo:</h2>
 
         <ul>
             <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
@@ -35,12 +42,12 @@
             </li>
         </ul>
 
-        <h4>Raaka-aineen lisäys</h4>
+        <h3>Raaka-aineen lisäys</h3>
 
         <form method="POST" action="/lisays">
             Nimi:<br/>
             <input type="text" name="nimi"/>
-            <input type="submit" value="Lisää"/>
+            <input type="submit" value="Lisää" style="button1" />
         </form>
     </body>
 </html>
