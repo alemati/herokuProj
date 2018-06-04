@@ -21,13 +21,13 @@ public class Main {
         
         RaakaAineDao raakaAineDao = new RaakaAineDao();
         
-        Spark.get("/*", (req, res) -> {
+        Spark.get("/ens", (req, res) -> {
             HashMap map = new HashMap<>();
             map.put("raakaAineLista", raakaAineDao.findAll());
             return new ModelAndView(map, "index");
         }, new ThymeleafTemplateEngine());
         
-        Spark.post("/*", (req, res) -> {
+        Spark.post("/ens", (req, res) -> {
             if (raakaAineDao.findAll() == null) {
                 raakaAineDao.save(new RaakaAine(1, req.queryParams("nimi")));
             } else {
