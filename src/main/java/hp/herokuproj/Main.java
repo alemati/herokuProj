@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import spark.ModelAndView;
+import spark.Redirect;
 import spark.Spark;
 import spark.template.thymeleaf.ThymeleafTemplateEngine;
 
@@ -18,21 +19,29 @@ public class Main {
             Spark.port(Integer.valueOf(System.getenv("PORT")));
         }
         
-        RaakaAineDao opiskelijaDao = new RaakaAineDao();
+        RaakaAineDao raakaAineDao = new RaakaAineDao();
         
         Spark.get("*", (req, res) -> {
             HashMap map = new HashMap<>();
-            List lista = opiskelijaDao.findAll();
-            if (lista != null) {
-                map.put("onkoNULL", "EI OLE NULL");
-            }
-            if (!lista.isEmpty()) {
-                map.put("onkoTyhja", "Eikä ole tyhjä... hmmm...");
-            }
-            map.put("teksti", "spark Get toimii!!");
-            map.put("raakaAineLista", opiskelijaDao.findAll());
+            map.put("raakaAineLista", raakaAineDao.findAll());
             return new ModelAndView(map, "index");
         }, new ThymeleafTemplateEngine());
+        
+        Spark.post("*", (req, res) -> {
+            if (raakaAineDao.findAll() == null) {
+                raakaAineDao.save(new RaakaAine(1, req.queryParams("nimi")));
+            } else {
+                raakaAineDao.save(new RaakaAine(raakaAineDao.viimeinenId() + 1, req.queryParams("nimi")));
+            }
+            res.redirect("*");
+            return "";
+        });
+        Spark.post("*/poisto/:id", (req, res) -> {
+            int id = Integer.parseInt(req.params(":id"));
+            raakaAineDao.delete(id);
+            res.redirect("/*");
+            return "";
+        });
 
     }
 

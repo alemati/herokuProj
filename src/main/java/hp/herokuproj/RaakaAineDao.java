@@ -98,4 +98,18 @@ public class RaakaAineDao {
         return DriverManager.getConnection("jdbc:sqlite:mysteeri.db");
     }
     
+    public int viimeinenId() throws SQLException, Exception {
+        List<RaakaAine> lista = findAll();
+        int viimeinen = 0; 
+        if (lista==null || lista.isEmpty()) {
+            return viimeinen;
+        }
+        for (RaakaAine raakaAine : lista) {
+            if(raakaAine.getId()>viimeinen) {
+                viimeinen = raakaAine.getId();
+            }
+        }
+        return viimeinen;
+    }
+    
 }
