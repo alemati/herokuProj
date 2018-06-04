@@ -1,6 +1,7 @@
 package hp.herokuproj;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -16,15 +17,43 @@ public class Main {
         if (System.getenv("PORT") != null) {
             Spark.port(Integer.valueOf(System.getenv("PORT")));
         }
-        
+
         Spark.get("*", (req, res) -> {
-            
+            Connection conn = getConnection();
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM RaakaAine");
+            ResultSet rs = stmt.executeQuery();
+            boolean hasOne = rs.next();
+            List<String> raakaAineLista = new ArrayList<>();
+            if (!hasOne) {
+                
+            } else {
+                String t = rs.getString("nimi");
+                raakaAineLista.add(t);
+                while (rs.next()) {
+                    t = rs.getString("nimi");
+                    raakaAineLista.add(t);
+                    System.out.println(t);
+                }
+            }
+            rs.close();
+            stmt.close();
+            conn.close();
+
             HashMap map = new HashMap<>();
             map.put("teksti", "spark Get toimii!!");
+            map.put("raakaAineLista", raakaAineLista);
 
             return new ModelAndView(map, "index");
         }, new ThymeleafTemplateEngine());
-        
+
+    }
+
+    public static Connection getConnection() throws Exception {
+        String dbUrl = System.getenv("JDBC_DATABASE_URL");
+        if (dbUrl != null && dbUrl.length() > 0) {
+            return DriverManager.getConnection(dbUrl);
+        }
+        return DriverManager.getConnection("jdbc:sqlite:mysteeri.db");
     }
 
 }

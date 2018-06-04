@@ -9,5 +9,10 @@
     <body>
         <h2>Tää on index.html</h2>
         <h3 th:text="${teksti}">Tää on index.html</h3>
+        
+        <ul>
+            <li th:each="nimi: ${raakaAineLista}"><span th:text="${nimi}">nimi</span></li>
+        </ul>
+        
     </body>
 </html>
