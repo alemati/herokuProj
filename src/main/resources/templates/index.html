@@ -12,7 +12,7 @@
         
         <ul>
             <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
-            <form method="POST" th:action="@{~/*/poisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block">
+            <form method="POST" th:action="@{~/poisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block">
                     <input type="submit" value="Poista"/>
             </form>
             </li>

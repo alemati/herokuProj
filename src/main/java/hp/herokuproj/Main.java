@@ -36,7 +36,7 @@ public class Main {
             res.redirect("/*");
             return "";
         });
-        Spark.post("/*/poisto/:id", (req, res) -> {
+        Spark.post("/poisto/:id", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
             raakaAineDao.delete(id);
             res.redirect("/*");
