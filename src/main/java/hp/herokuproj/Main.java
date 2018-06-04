@@ -33,13 +33,13 @@ public class Main {
             } else {
                 raakaAineDao.save(new RaakaAine(raakaAineDao.viimeinenId() + 1, req.queryParams("nimi")));
             }
-            res.redirect("/*");
+            res.redirect("/ens");
             return "";
         });
         Spark.post("/poisto/:id", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
             raakaAineDao.delete(id);
-            res.redirect("/*");
+            res.redirect("/ens");
             return "";
         });
 
