@@ -5,7 +5,6 @@
         <title>index</title>
         <meta charset="UTF-8">
     </head>
-
     <body>
         <h2>Tervetuloa ravintolaan!</h2>
 
@@ -13,9 +12,6 @@
         
         <ul>
             <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span></li>
-<!--            <form method="POST" th:action="@{~/*/poisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block">
-                <input type="submit" value="Poista"/>
-            </form>-->
         </ul>
         
         <h4>Raaka-aineen lisäys</h4>
