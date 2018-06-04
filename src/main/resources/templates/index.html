@@ -10,9 +10,11 @@
         <h2>Tää on index.html</h2>
         <h3 th:text="${teksti}">Tää on index.html</h3>
         <h3 th:text="${onkoNULL}">null</h3>
+        <h3 th:text="${onkoTyhja}">null</h3>
         <ul>
-            <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span><span>lolo</span></li>
+            <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine}">nimi</span></li>
         </ul>
+        
         
     </body>
 </html>

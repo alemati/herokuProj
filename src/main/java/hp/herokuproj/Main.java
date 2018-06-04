@@ -26,8 +26,11 @@ public class Main {
             if (lista != null) {
                 map.put("onkoNULL", "EI OLE NULL");
             }
+            if (!lista.isEmpty()) {
+                map.put("onkoTyhja", "Eikä ole tyhjä... hmmm...");
+            }
             map.put("teksti", "spark Get toimii!!");
-            map.put("raakaAineLisra", opiskelijaDao.findAll());
+            map.put("raakaAineLista", opiskelijaDao.findAll());
             return new ModelAndView(map, "index");
         }, new ThymeleafTemplateEngine());
 
