@@ -29,7 +29,19 @@
                     background-color: #4CAF50; /* Green */
                     border: none;
                     color: white;
-                    padding: 5px 5px;
+                    padding: 3px 2px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                }
+                .button2 {
+                    background-color: #f44336; /* Red */
+                    border: none;
+                    color: white;
+                    padding: 3px 2px;
                     text-align: center;
                     text-decoration: none;
                     display: inline-block;
@@ -38,10 +50,6 @@
                     cursor: pointer;
                 }
 
-                .button2 {background-color: #008CBA;} /* Blue */
-                .button3 {background-color: #f44336;} /* Red */ 
-                .button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
-                .button5 {background-color: #555555;} /* Black */
 
             </style>
     </head>
@@ -51,9 +59,9 @@
 
         <h2>Raaka-aineiden luettelo:</h2>
 
-        <ul class="list-unstyled">
+        <ul style="list-style-type:none">
             <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
-                <form method="POST" th:action="@{~/poisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block" class="button button3">
+                <form method="POST" th:action="@{~/poisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block" class="button2">
                     <input type="submit" value="Poista"/>
                 </form>
             </li>
