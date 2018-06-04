@@ -27,7 +27,7 @@ public class Main {
             return new ModelAndView(map, "index");
         }, new ThymeleafTemplateEngine());
         
-        Spark.post("/*", (req, res) -> {
+        Spark.post("/lisays", (req, res) -> {
             if (raakaAineDao.findAll() == null) {
                 raakaAineDao.save(new RaakaAine(1, req.queryParams("nimi")));
             } else {
