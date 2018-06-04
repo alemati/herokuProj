@@ -12,37 +12,18 @@ import spark.Spark;
 import spark.template.thymeleaf.ThymeleafTemplateEngine;
 
 public class Main {
-
+    
     public static void main(String[] args) {
         if (System.getenv("PORT") != null) {
             Spark.port(Integer.valueOf(System.getenv("PORT")));
         }
-
+        
+        RaakaAineDao opiskelijaDao = new RaakaAineDao();
+        
         Spark.get("*", (req, res) -> {
-            Connection conn = getConnection();
-            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM RaakaAine");
-            ResultSet rs = stmt.executeQuery();
-            boolean hasOne = rs.next();
-            List<String> raakaAineLista = new ArrayList<>();
-            if (!hasOne) {
-                
-            } else {
-                String t = rs.getString("nimi");
-                raakaAineLista.add(t);
-                while (rs.next()) {
-                    t = rs.getString("nimi");
-                    raakaAineLista.add(t);
-                    System.out.println(t);
-                }
-            }
-            rs.close();
-            stmt.close();
-            conn.close();
-
             HashMap map = new HashMap<>();
             map.put("teksti", "spark Get toimii!!");
-            map.put("raakaAineLista", raakaAineLista);
-
+            map.put("raakaAineLisra", opiskelijaDao.findAll());
             return new ModelAndView(map, "index");
         }, new ThymeleafTemplateEngine());
 
