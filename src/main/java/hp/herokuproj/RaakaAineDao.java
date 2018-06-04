@@ -82,9 +82,9 @@ public class RaakaAineDao {
     }
     
     public void delete(Integer key) throws SQLException, Exception {
-    Connection conn = getConnection();
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM RaakaAine WHERE id = (?)");
-        stmt.setInt(1, key);
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM RaakaAine WHERE id =" + key);
+//        stmt.setInt(1, key);
         stmt.executeUpdate();
         stmt.close();
         conn.close();
