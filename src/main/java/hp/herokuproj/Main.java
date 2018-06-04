@@ -22,6 +22,10 @@ public class Main {
         
         Spark.get("*", (req, res) -> {
             HashMap map = new HashMap<>();
+            List lista = opiskelijaDao.findAll();
+            if (lista != null) {
+                map.put("onkoNULL", "EI OLE NULL");
+            }
             map.put("teksti", "spark Get toimii!!");
             map.put("raakaAineLisra", opiskelijaDao.findAll());
             return new ModelAndView(map, "index");
