@@ -25,6 +25,23 @@
                     color: black; 
                     border: 2px solid #f44336;
                 }
+                .button {
+                    background-color: #4CAF50; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                }
+
+                .button2 {background-color: #008CBA;} /* Blue */
+                .button3 {background-color: #f44336;} /* Red */ 
+                .button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+                .button5 {background-color: #555555;} /* Black */
 
             </style>
     </head>
@@ -36,7 +53,7 @@
 
         <ul class="list-unstyled">
             <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
-                <form method="POST" th:action="@{~/poisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block" class="buttonRed">
+                <form method="POST" th:action="@{~/poisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block" class="button button3">
                     <input type="submit" value="Poista"/>
                 </form>
             </li>
@@ -47,7 +64,7 @@
         <form method="POST" action="/lisays">
             Nimi:<br/>
             <input type="text" name="nimi"/>
-            <input type="submit" value="Lisää" class="buttonGreen" />
+            <input type="submit" value="Lisää" class="button" />
         </form>
     </body>
 </html>
