@@ -89,8 +89,10 @@
                 <h2>Raaka-aineet:</h2>
 
                 <ul style="list-style-type:none">
-                    <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
-                        <a href="/index2">/index2</a>
+                    <li th:each="raakaAine: ${raakaAineLista}">
+                        <a th:href="@{~/index2/{id}(id=${raakaAine.id})}">
+                            <span th:text="${raakaAine.nimi}">nimi</span>
+                        </a>
                         <form method="POST" th:action="@{~/raakaAinePoisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block">
                             <input type="submit" value="Poista" class="buttonRed" />
                         </form>
