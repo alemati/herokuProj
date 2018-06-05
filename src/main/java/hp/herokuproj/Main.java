@@ -24,7 +24,7 @@ public class Main {
         RaakaAineDao raakaAineDao = new RaakaAineDao();
         AnnosDao annosDao = new AnnosDao();
         
-        Spark.get("/*", (req, res) -> {
+        Spark.get("/index", (req, res) -> {
             HashMap map = new HashMap<>();
             map.put("raakaAineLista", raakaAineDao.findAll());
             map.put("annosLista", annosDao.findAll());
@@ -74,7 +74,7 @@ public class Main {
             } else {
                 raakaAineDao.save(new RaakaAine(raakaAineDao.viimeinenId() + 1, req.queryParams("nimi")));
             }
-            res.redirect("/*");
+            res.redirect("/index");
             return "";
         });
         
@@ -84,21 +84,21 @@ public class Main {
             } else {
                 annosDao.save(new Annos(annosDao.viimeinenId() + 1, req.queryParams("nimi"),req.queryParams("ohje")));
             }
-            res.redirect("/*");
+            res.redirect("/index");
             return "";
         });
         
         Spark.post("/annosPoisto/:id", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
             annosDao.delete(id);
-            res.redirect("/*");
+            res.redirect("/index");
             return "";
         });
         
         Spark.post("/raakaAinePoisto/:id", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
             raakaAineDao.delete(id);
-            res.redirect("/raakaAineet");
+            res.redirect("/index");
             return "";
         });
         

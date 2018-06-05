@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <head>
-        <title>index1</title>
+        <title>index</title>
         <meta charset="UTF-8">
             <style>
                 body {
@@ -69,31 +69,9 @@
         <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
         <p>Täällä voit luoda omia resepteja, selata muiden tekemiä ruokaohjeita ja muokata niitä.</p>
         <p>Pääset tarkistamaan jokaisen annoksen tai raaka-aineen tarkeimmat tiedot klikkaamalla niiden nimiä.</p>
-        <a href="/index2.html">/index2.html</a>
-        <a href="${/index2.html}">${//index2.html}</a>
-        <a href="https://www.w3schools.com">Visit W3Schools</a>
-        <a href="https://heroku-proj.herokuapp.com/index2">https://heroku-proj.herokuapp.com/index2</a>
-        <form method="POST" action="/index2.html">
-            <input type="submit" value="POST  /index2" class="buttonRed" />
-        </form>
-        <form method="GET" action="/index2.html">
-            <input type="submit" value="GET  /index2" class="buttonRed" />
-        </form>
 
 
         <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
-        <!--        <h4>Just push one or the other</h4>
-        
-                <a href="/raakaAineet">Raaka-aineet</a>
-                <a href="/annokset">Annokset</a>-->
-
-        <!--        <form method="POST" action="/*">
-                    <input type="submit" value="Raaka-aineet" class="buttonGreen" />
-                </form>
-        
-                <form method="POST" action="/*/annokset">
-                    <input type="submit" value="Annokset" class="buttonGreen" />
-                </form>-->
 
         <div class="row">
             <div class="column">
@@ -103,7 +81,6 @@
                 <form method="POST" action="/raakaAineLisays">
                     Nimi:<br/>
                     <input type="text" name="nimi"/>
-
                     <input type="submit" value="Lisää" class="buttonGreen" />
                 </form>
 
@@ -113,7 +90,7 @@
 
                 <ul style="list-style-type:none">
                     <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
-                        <a href="/raakaAineSivu"><span>linkki</span></a>
+                        <a href="/index2.html">/index2.html</a>
                         <form method="POST" th:action="@{~/raakaAinePoisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block">
                             <input type="submit" value="Poista" class="buttonRed" />
                         </form>
@@ -142,6 +119,7 @@
 
                 <ul style="list-style-type:none">
                     <li th:each="annos: ${annosLista}"><span th:text="${annos.nimi}">nimi</span>
+                        <a href="/index2.html">/index2.html</a>
                         <form method="POST" th:action="@{~/annosPoisto/{annos}(annos=${annos.id})}" style="display: inline-block">
                             <input type="submit" value="Poista" class="buttonRed" />
                         </form>
@@ -153,7 +131,7 @@
 
 
         <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
-
+        <a href="/index2.html">/index2.html</a>
 
     </body>
 </html>
