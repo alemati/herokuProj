@@ -27,6 +27,11 @@ public class Main {
             return new ModelAndView(map, "index");
         }, new ThymeleafTemplateEngine());
         
+        Spark.post("/*", (req, res) -> {
+            res.redirect("/raakaAineet");
+            return "";
+        });
+        
         Spark.get("/raakaAineet", (req, res) -> {
             HashMap map = new HashMap<>();
             map.put("raakaAineLista", raakaAineDao.findAll());
