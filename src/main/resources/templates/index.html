@@ -120,8 +120,10 @@
                 <h2>Annokset:</h2>
 
                 <ul style="list-style-type:none">
-                    <li th:each="annos: ${annosLista}"><span th:text="${annos.nimi}">nimi</span>
-                        <a href="/index2.html">/index2.html</a>
+                    <li th:each="annos: ${annosLista}">
+                        <a th:href="@{~/index3/{id}(id=${annos.id})}">
+                            <span th:text="${annos.nimi}">nimi</span>
+                        </a>
                         <form method="POST" th:action="@{~/annosPoisto/{annos}(annos=${annos.id})}" style="display: inline-block">
                             <input type="submit" value="Poista" class="buttonRed" />
                         </form>
@@ -133,7 +135,6 @@
 
 
         <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
-        <a href="/index2.html">/index2.html</a>
-        <a href="/index2">/index2</a>
+        
     </body>
 </html>

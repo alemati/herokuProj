@@ -40,41 +40,41 @@ public class Main {
 //            res.redirect("/raakaAineet");
 //            return "";
 //        });
-        Spark.get("/raakaAineSivu/", (req, res) -> {
-            HashMap map = new HashMap<>();
-//            map.put("raakaAineLista", raakaAineDao.findAll());
-//            map.put("annosLista", annosDao.findAll());
-            return new ModelAndView(map, "raakaAineSivu");
-        }, new ThymeleafTemplateEngine());
+//        Spark.get("/raakaAineSivu/", (req, res) -> {
+//            HashMap map = new HashMap<>();
+////            map.put("raakaAineLista", raakaAineDao.findAll());
+////            map.put("annosLista", annosDao.findAll());
+//            return new ModelAndView(map, "raakaAineSivu");
+//        }, new ThymeleafTemplateEngine());
+//
+//        Spark.post("/raakaAineSivu/", (req, res) -> {
+//            res.redirect("/raakaAineSivu");
+//            return "";
+//        });
 
-        Spark.post("/raakaAineSivu/", (req, res) -> {
-            res.redirect("/raakaAineSivu");
-            return "";
-        });
+//        Spark.get("/index2", (req, res) -> {
+//            HashMap map = new HashMap<>();
+//            map.put("toimii", "Toimii");
+//            return new ModelAndView(map, "index2");
+//        }, new ThymeleafTemplateEngine());
+//
+//        Spark.post("/index2", (req, res) -> {
+//            int i = 1 + 1;
+//            res.redirect("/index2");
+//            return "";
+//        });
 
-        Spark.get("/index2", (req, res) -> {
-            HashMap map = new HashMap<>();
-            map.put("toimii", "Toimii");
-            return new ModelAndView(map, "index2");
-        }, new ThymeleafTemplateEngine());
-
-        Spark.post("/index2", (req, res) -> {
-            int i = 1 + 1;
-            res.redirect("/index2");
-            return "";
-        });
-
-        Spark.get("/index2", (req, res) -> {
-            HashMap map = new HashMap<>();
-            map.put("toimii", "Toimii");
-            return new ModelAndView(map, "index2");
-        }, new ThymeleafTemplateEngine());
-
-        Spark.post("/index2", (req, res) -> {
-            int i = 1 + 1;
-            res.redirect("/index2");
-            return "";
-        });
+//        Spark.get("/index2", (req, res) -> {
+//            HashMap map = new HashMap<>();
+//            map.put("toimii", "Toimii");
+//            return new ModelAndView(map, "index2");
+//        }, new ThymeleafTemplateEngine());
+//
+//        Spark.post("/index2", (req, res) -> {
+//            int i = 1 + 1;
+//            res.redirect("/index2");
+//            return "";
+//        });
 
         Spark.post("/raakaAineLisays", (req, res) -> {
             if (raakaAineDao.findAll() == null) {
@@ -115,6 +115,13 @@ public class Main {
             Integer userId = Integer.parseInt(req.params(":id"));
             map.put("raakaAine", raakaAineDao.findOneById(userId));
             return new ModelAndView(map, "index2");
+        }, new ThymeleafTemplateEngine());
+        
+        Spark.get("/index3/:id", (req, res) -> {
+            HashMap map = new HashMap<>();
+            Integer userId = Integer.parseInt(req.params(":id"));
+            map.put("annos", annosDao.findOneById(userId));
+            return new ModelAndView(map, "index3");
         }, new ThymeleafTemplateEngine());
 
 //        Spark.get("/annokset", (req, res) -> {
