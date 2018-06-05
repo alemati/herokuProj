@@ -24,22 +24,24 @@ public class Main {
         
         Spark.get("/*", (req, res) -> {
             HashMap map = new HashMap<>();
+            map.put("raakaAineLista", raakaAineDao.findAll());
+            map.put("annosLista", annosDao.findAll());
             return new ModelAndView(map, "index");
         }, new ThymeleafTemplateEngine());
         
-        Spark.post("/*", (req, res) -> {
-            res.redirect("/raakaAineet");
-            return "";
-        });
+//        Spark.post("/*", (req, res) -> {
+//            res.redirect("/raakaAineet");
+//            return "";
+//        });
         
         Spark.get("/raakaAineet", (req, res) -> {
             HashMap map = new HashMap<>();
             map.put("raakaAineLista", raakaAineDao.findAll());
-            return new ModelAndView(map, "raakaAineet.html");
+            return new ModelAndView(map, "raakaAineet");
         }, new ThymeleafTemplateEngine());
         
         Spark.post("/avaaRaakaAineet", (req, res) -> {
-            res.redirect("/raakaAineet.html");
+            res.redirect("/raakaAineet");
             return "";
         });
         
@@ -49,9 +51,27 @@ public class Main {
             } else {
                 raakaAineDao.save(new RaakaAine(raakaAineDao.viimeinenId() + 1, req.queryParams("nimi")));
             }
-            res.redirect("/raakaAineet");
+            res.redirect("/*");
             return "";
         });
+        
+        Spark.post("/annosLisays", (req, res) -> {
+            if (annosDao.findAll() == null) {
+                annosDao.save(new Annos(1, req.queryParams("nimi"),req.queryParams("ohje")));
+            } else {
+                annosDao.save(new Annos(annosDao.viimeinenId() + 1, req.queryParams("nimi"),req.queryParams("ohje")));
+            }
+            res.redirect("/*");
+            return "";
+        });
+        
+        Spark.post("/annosPoisto/:id", (req, res) -> {
+            int id = Integer.parseInt(req.params(":id"));
+            annosDao.delete(id);
+            res.redirect("/*");
+            return "";
+        });
+        
         Spark.post("/raakaAinePoisto/:id", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
             raakaAineDao.delete(id);
