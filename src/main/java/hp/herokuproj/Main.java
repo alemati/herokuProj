@@ -10,6 +10,7 @@ import java.util.List;
 import spark.ModelAndView;
 import spark.Redirect;
 import spark.Spark;
+import static spark.Spark.staticFiles;
 import spark.template.thymeleaf.ThymeleafTemplateEngine;
 
 public class Main {
@@ -18,6 +19,7 @@ public class Main {
         if (System.getenv("PORT") != null) {
             Spark.port(Integer.valueOf(System.getenv("PORT")));
         }
+        staticFiles.location("/templates");
         
         RaakaAineDao raakaAineDao = new RaakaAineDao();
         AnnosDao annosDao = new AnnosDao();
