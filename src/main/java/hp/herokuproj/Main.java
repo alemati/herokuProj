@@ -33,6 +33,11 @@ public class Main {
             return new ModelAndView(map, "raakaAineet");
         }, new ThymeleafTemplateEngine());
         
+        Spark.post("/avaaRaakaAineet", (req, res) -> {
+            res.redirect("/raakaAineet");
+            return "";
+        });
+        
         Spark.post("/raakaAineLisays", (req, res) -> {
             if (raakaAineDao.findAll() == null) {
                 raakaAineDao.save(new RaakaAine(1, req.queryParams("nimi")));
@@ -51,9 +56,13 @@ public class Main {
         
         Spark.get("/annokset", (req, res) -> {
             HashMap map = new HashMap<>();
-            
             return new ModelAndView(map, "annokset");
         }, new ThymeleafTemplateEngine());
+        
+        Spark.post("/avaaAnnokset", (req, res) -> {
+            res.redirect("/annokset");
+            return "";
+        });
         
     }
 
