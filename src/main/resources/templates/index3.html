@@ -9,7 +9,7 @@
                     background-color: cadetblue;
                 }
 
-                h1,h2,h3,h4,p,span,ul,form,a {
+                h1,h2,h3,h4,p,span,ul,form,a,hfer {
                     color: white;
                     text-align: center;
                 }
@@ -70,11 +70,11 @@
         <h3>Valmistusohje: <span th:text="${annos.ohje}">ohje</span></h3>
         <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
         <h3>Tässä reseptissä käytetyt raaka-aineet: </h3>
-<!--            <ul style="list-style-type:none">
-                <li th:each="annos: ${kaytetty}">
-                    <span th:text="${annos.nimi}">nimi</span>
+            <ul style="list-style-type:none">
+                <li th:each="ra: ${raakaAineet}">
+                    <span th:text="${ra.nimi}">nimi</span>
                 </li>
-            </ul> -->
+            </ul> 
             <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
             <a href="/index">Etusivulle</a>
     </body>
