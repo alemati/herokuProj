@@ -44,6 +44,12 @@ public class Main {
             res.redirect("/raakaAineet");
             return "";
         });
+        Spark.get("/raakaAineSivu", (req, res) -> {
+            HashMap map = new HashMap<>();
+            map.put("raakaAineLista", raakaAineDao.findAll());
+            map.put("annosLista", annosDao.findAll());
+            return new ModelAndView(map, "raakaAineSivu");
+        }, new ThymeleafTemplateEngine());
         
         Spark.post("/raakaAineLisays", (req, res) -> {
             if (raakaAineDao.findAll() == null) {
