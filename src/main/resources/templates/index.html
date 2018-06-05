@@ -66,10 +66,10 @@
 
     <body>
         <h1>Tervetuloa ravintolaan!</h1>
-        <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
+        <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
         <p>Täällä voit luoda omia resepteja, selata muiden tekemiä ruokaohjeita ja muokata niitä.</p>
         <p>Pääset tarkistamaan jokaisen annoksen tai raaka-aineen tarkeimmat tiedot klikkaamalla niiden nimiä.</p>
-        <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
+        <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
         <!--        <h4>Just push one or the other</h4>
         
                 <a href="/raakaAineet">Raaka-aineet</a>
@@ -89,12 +89,13 @@
 
                 <ul style="list-style-type:none">
                     <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
+                        <a th:href="${'/raakaAineSivu/'}"><span>nimi</span></a>
                         <form method="POST" th:action="@{~/raakaAinePoisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block">
                             <input type="submit" value="Poista" class="buttonRed" />
                         </form>
                     </li>
                 </ul> 
-                <h3>-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
+                <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
                 <h3>Raaka-aineen lisäys:</h3>
 
                 <form method="POST" action="/raakaAineLisays">
@@ -116,7 +117,7 @@
                         </form>
                     </li>
                 </ul> 
-                <h3>-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
+                <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
                 <h3>Annoksen lisäys:</h3>
 
                 <form method="POST" action="/annosLisays">
@@ -154,8 +155,8 @@
                     <input type="submit" value="Lisää" class="buttonGreen" />
                 </form>-->
 
-        <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
-
+        <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
+        
         <!--        <h2>Annokset:</h2>
         
                 <ul style="list-style-type:none">
