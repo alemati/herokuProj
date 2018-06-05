@@ -71,16 +71,34 @@
         <p><span th:text="${annos.ohje}">ohje</span></p>
         <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
         <h3>Tässä reseptissä käytetyt raaka-aineet: </h3>
-            <ul style="list-style-type:none">
-                <li th:each="ra: ${raakaAineet}">
-                    <span th:text="${ra.RaakaAineNimi}">nimi</span>
-                    <span th:text="${ra.maara}">maara</span>
-                    <br/>Ohje:
-                    <span th:text="${ra.ohje}">ohje</span>
-                    <h4>-=-=-=-=-=-</h4>
-                </li>
-            </ul> 
-            <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
-            <p><a href="/index">Etusivulle</a></p>
+        <ul style="list-style-type:none">
+            <li th:each="ra: ${raakaAineet}">
+                <span th:text="${ra.RaakaAineNimi}">nimi</span>
+                <span th:text="${ra.maara}">maara</span>
+                <br/>Ohje:
+                <span th:text="${ra.ohje}">ohje</span>
+                <h4>-=-=-=-=-=-</h4>
+            </li>
+        </ul> 
+        <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
+        <h3>Lisää raaka-aine tälle annokselle</h3>
+
+        <form method="POST" action="/RAlisaysA">
+            <select name="uusiRaakaAine">
+                <p th:each="a: ${vRaakaAineet}">
+                    <option><span th:text="${a.getNimi()}">1</span></option>
+                </p>
+            </select>
+
+            <br><br>
+
+                    Määrä (esim: 2 kpl tai 3 tl tai 1 dl):<br/><input type="text" name="maara"/><br/>
+
+                    <input type="text" name="index" />
+                    <input class="buttonGreen" type="submit" value="Lisää">
+        </form>
+        <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
+       <p><a href="/index">Etusivulle</a></p>
+
     </body>
 </html>

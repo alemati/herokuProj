@@ -81,8 +81,18 @@ public class Main {
             Integer userId = Integer.parseInt(req.params(":id"));
             map.put("annos", annosDao.findOneById(userId));
             map.put("raakaAineet", annosRaakaAineDoa.mitaRAonTassaAnnoksessaOnKaytetty(annosDao.findOneById(Integer.parseInt(req.params(":id")))));
+            map.put("vRaakaAineet", raakaAineDao.findAll());
             return new ModelAndView(map, "index3");
         }, new ThymeleafTemplateEngine());
+        
+        Spark.post("/index3/:id", (req, res) -> {
+            int id = Integer.parseInt(req.params(":id"));
+            
+            annosRaakaAineDoa.deleteBasedOnAnnos(annosDao.findOneById(Integer.parseInt(req.params(":id"))));
+            annosDao.delete(id);
+            res.redirect("/index");
+            return "";
+        });
 
     }
 
