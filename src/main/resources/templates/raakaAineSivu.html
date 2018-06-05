@@ -1,0 +1,68 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>RaakaAineet</title>
+        <meta charset="UTF-8">
+            <style>
+                body {
+                    background-color: cadetblue;
+                }
+
+                h1,h2,h3,h4,p,span,ul,form {
+                    color: white;
+                    text-align: center;
+                }
+
+                .buttonGreen {
+                    background-color: #4CAF50; /* Green */
+                    border: none;
+                    color: white;
+/*                    padding: 2px 2px;*/
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                }
+                .buttonRed {
+                    background-color: #f44336; /* Red */
+                    border: none;
+                    color: white;
+/*                    padding: 2px 2px;*/
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                }
+
+
+            </style>
+    </head>
+
+    <body>
+        
+        <h2>Raaka-aineiden luettelo:</h2>
+
+        <ul style="list-style-type:none">
+            <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
+                <form method="POST" th:action="@{~/raakaAinePoisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block">
+                    <input type="submit" value="Poista" class="buttonRed" />
+                </form>
+            </li>
+        </ul>
+
+        <h3>Raaka-aineen lisäys</h3>
+
+        <form method="POST" action="/raakaAineLisays">
+            Nimi:<br/>
+            <input type="text" name="nimi"/>
+            <input type="submit" value="Lisää" class="buttonGreen" />
+        </form>
+        
+        <a href="/*">Pääsivulle</a>
+    </body>
+</html>
