@@ -81,7 +81,7 @@
         <h2>Annokset:</h2>
 
         <ul style="list-style-type:none">
-            <li th:each="annos: ${raakaAineLista}"><span th:text="${annos.nimi}">nimi</span>
+            <li th:each="annos: ${annosLista}"><span th:text="${annos.nimi}">nimi</span>
                 <form method="POST" th:action="@{~/annosPoisto/{annos}(annos=${annos.id})}" style="display: inline-block">
                     <input type="submit" value="Poista" class="buttonRed" />
                 </form>
@@ -91,6 +91,7 @@
         <form method="POST" action="/annosLisays">
             Nimi:<br/>
             <input type="text" name="nimi"/>
+            Ohje:<br/>
             <textarea rows="4" cols="40" name="ohje">...</textarea>
             <input type="submit" value="Lisää" class="buttonGreen" />
         </form>
