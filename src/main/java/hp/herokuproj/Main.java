@@ -54,6 +54,7 @@ public class Main {
 
         Spark.post("/annosPoisto/:id", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
+            annosRaakaAineDoa.deleteBasedOnAnnos(annosDao.findOneById(Integer.parseInt(req.params(":id"))));
             annosDao.delete(id);
             res.redirect("/index");
             return "";
@@ -61,6 +62,7 @@ public class Main {
 
         Spark.post("/raakaAinePoisto/:id", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
+            annosRaakaAineDoa.deleteBasedOnRaakaAine(raakaAineDao.findOneById(Integer.parseInt(req.params(":id"))));
             raakaAineDao.delete(id);
             res.redirect("/index");
             return "";
