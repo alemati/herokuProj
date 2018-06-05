@@ -55,15 +55,15 @@ public class Main {
             return "";
         });
         
-        Spark.get("/src/main/resources/templates/index2", (req, res) -> {
+        Spark.get("/index2.html", (req, res) -> {
             HashMap map = new HashMap<>();
             map.put("toimii", "Toimii");
             return new ModelAndView(map, "index2");
         }, new ThymeleafTemplateEngine());
         
-        Spark.post("/src/main/resources/templates/index2", (req, res) -> {
+        Spark.post("/index2.html", (req, res) -> {
             int i = 1+1;
-            res.redirect("/src/main/resources/templates/index2");
+            res.redirect("/index2.html");
             return "";
         });
         
