@@ -9,7 +9,7 @@
                     background-color: cadetblue;
                 }
 
-                h1,h2,h3,h4,p,span,ul,form,a {
+                h1,h2,h3,h4,p,span,ul,form,a,textarea {
                     color: white;
                     text-align: center;
                 }
@@ -38,6 +38,20 @@
                     margin: 4px 2px;
                     cursor: pointer;
                 }
+                
+                .littleMargin {
+                    margin: 4px 2px;
+                }
+
+                .column {
+                    float: left;
+                    width: 50%;
+                }
+                .row:after {
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
 
 
             </style>
@@ -45,10 +59,11 @@
 
     <body>
         <h1>Tervetuloa ravintolaan!</h1>
-        <h4>Just push one or the other</h4>
-
-        <a href="/raakaAineet">Raaka-aineet</a>
-        <a href="/annokset">Annokset</a>
+        <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
+        <!--        <h4>Just push one or the other</h4>
+        
+                <a href="/raakaAineet">Raaka-aineet</a>
+                <a href="/annokset">Annokset</a>-->
 
         <!--        <form method="POST" action="/*">
                     <input type="submit" value="Raaka-aineet" class="buttonGreen" />
@@ -58,43 +73,92 @@
                     <input type="submit" value="Annokset" class="buttonGreen" />
                 </form>-->
 
-        <h2>Raaka-aineiden luettelo:</h2>
+        <div class="row">
+            <div class="column">
+                <h2>Raaka-aineiden luettelo:</h2>
 
-        <ul style="list-style-type:none">
-            <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
-                <form method="POST" th:action="@{~/raakaAinePoisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block">
-                    <input type="submit" value="Poista" class="buttonRed" />
+                <ul style="list-style-type:none">
+                    <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
+                        <form method="POST" th:action="@{~/raakaAinePoisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block">
+                            <input type="submit" value="Poista" class="buttonRed" />
+                        </form>
+                    </li>
+                </ul> 
+
+                <h3>Raaka-aineen lisäys</h3>
+
+                <form method="POST" action="/raakaAineLisays">
+                    Nimi:<br/>
+                    <input type="text" name="nimi"/>
+                    <input type="submit" value="Lisää" class="buttonGreen" />
                 </form>
-            </li>
-        </ul> 
+            </div>
 
-        <h3>Raaka-aineen lisäys</h3>
 
-        <form method="POST" action="/raakaAineLisays">
-            Nimi:<br/>
-            <input type="text" name="nimi"/>
-            <input type="submit" value="Lisää" class="buttonGreen" />
-        </form>
+            <div class="column">
+                <h2>Annokset:</h2>
+
+                <ul style="list-style-type:none">
+                    <li th:each="annos: ${annosLista}"><span th:text="${annos.nimi}">nimi</span>
+                        <form method="POST" th:action="@{~/annosPoisto/{annos}(annos=${annos.id})}" style="display: inline-block">
+                            <input type="submit" value="Poista" class="buttonRed" />
+                        </form>
+                    </li>
+                </ul> 
+
+                <form method="POST" action="/annosLisays">
+                    Nimi:<br/>
+                    <input type="text" name="nimi"/>
+                    Ohje:<br/>
+                    <br/>
+                    <textarea rows="4" cols="40" name="ohje" class="littleMargin"></textarea>
+                    <input type="submit" value="Lisää" class="buttonGreen" />
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+        <!--        <h2>Raaka-aineiden luettelo:</h2>
+        
+                <ul style="list-style-type:none">
+                    <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
+                        <form method="POST" th:action="@{~/raakaAinePoisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block">
+                            <input type="submit" value="Poista" class="buttonRed" />
+                        </form>
+                    </li>
+                </ul> 
+        
+                <h3>Raaka-aineen lisäys</h3>
+        
+                <form method="POST" action="/raakaAineLisays">
+                    Nimi:<br/>
+                    <input type="text" name="nimi"/>
+                    <input type="submit" value="Lisää" class="buttonGreen" />
+                </form>-->
 
         <h3>-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</h3>
 
-        <h2>Annokset:</h2>
-
-        <ul style="list-style-type:none">
-            <li th:each="annos: ${annosLista}"><span th:text="${annos.nimi}">nimi</span>
-                <form method="POST" th:action="@{~/annosPoisto/{annos}(annos=${annos.id})}" style="display: inline-block">
-                    <input type="submit" value="Poista" class="buttonRed" />
-                </form>
-            </li>
-        </ul> 
-
-        <form method="POST" action="/annosLisays">
-            Nimi:<br/>
-            <input type="text" name="nimi"/>
-            Ohje:<br/>
-            <textarea rows="4" cols="40" name="ohje">...</textarea>
-            <input type="submit" value="Lisää" class="buttonGreen" />
-        </form>
+        <!--        <h2>Annokset:</h2>
+        
+                <ul style="list-style-type:none">
+                    <li th:each="annos: ${annosLista}"><span th:text="${annos.nimi}">nimi</span>
+                        <form method="POST" th:action="@{~/annosPoisto/{annos}(annos=${annos.id})}" style="display: inline-block">
+                            <input type="submit" value="Poista" class="buttonRed" />
+                        </form>
+                    </li>
+                </ul> 
+        
+                <form method="POST" action="/annosLisays">
+                    Nimi:<br/>
+                    <input type="text" name="nimi"/>
+                    Ohje:<br/>
+                    <br/>
+                    <textarea rows="4" cols="40" name="ohje"></textarea>
+                    <input type="submit" value="Lisää" class="buttonGreen" />
+                </form>-->
 
     </body>
 </html>
