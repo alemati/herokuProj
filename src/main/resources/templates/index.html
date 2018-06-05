@@ -9,7 +9,7 @@
                     background-color: cadetblue;
                 }
 
-                h1,h2,h3,h4,p,span,ul,form {
+                h1,h2,h3,h4,p,span,ul,form,a {
                     color: white;
                     text-align: center;
                 }
@@ -45,11 +45,18 @@
 
     <body>
         <h1>Tervetuloa ravintolaan!</h1>
-        <h4>Alla olevista linkistä pääset lisäämään raaka-aineita ja annoksia.</h4>
-        <a href="/raakaAineet">Raaka-aineet</a>
-        <a href="/annokset">Annokset</a>
+        <h4>Just push one or the other</h4>
+<!--        <a href="/raakaAineet">Raaka-aineet</a>
+        <a href="/annokset">Annokset</a>-->
         
-        <h2>Raaka-aineiden luettelo:</h2>
+        <form method="POST" action="/raakaAineet">
+            <input type="submit" value="RaakaAineet" class="buttonGreen" />
+        </form>
+        <form method="POST" action="/annokset">
+            <input type="submit" value="Lisää" class="buttonGreen" />
+        </form>-->
+        
+<!--        <h2>Raaka-aineiden luettelo:</h2>-->
 
 <!--        <ul style="list-style-type:none">
             <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>

@@ -48,7 +48,13 @@ public class Main {
             res.redirect("/raakaAineet");
             return "";
         });
-
+        
+        Spark.get("/annokset", (req, res) -> {
+            HashMap map = new HashMap<>();
+            
+            return new ModelAndView(map, "annokset");
+        }, new ThymeleafTemplateEngine());
+        
     }
 
     public static Connection getConnection() throws Exception {
