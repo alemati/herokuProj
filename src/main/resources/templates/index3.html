@@ -67,12 +67,16 @@
     <body>
         <h2><span th:text="${annos.nimi}">nimi</span></h2>
         <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
-        <h3>Valmistusohje: <span th:text="${annos.ohje}">ohje</span></h3>
+        <h3>Valmistusohje: </h3>
+        <span th:text="${annos.ohje}">ohje</span>
         <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
         <h3>Tässä reseptissä käytetyt raaka-aineet: </h3>
             <ul style="list-style-type:none">
                 <li th:each="ra: ${raakaAineet}">
-                    <p><span th:text="${ra.RaakaAineNimi}">nimi</span><span th:text="${ra.maara}">nimi</span><span th:text="${ra.ohje}">nimi</span></p>
+                    <span th:text="${ra.RaakaAineNimi}">nimi</span>
+                    <span th:text="${ra.maara}">maara</span>
+                    <h4>-=-=-</h4>
+                    <span th:text="${ra.ohje}">ohje</span>
                 </li>
             </ul> 
             <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
