@@ -41,14 +41,14 @@ public class Main {
 //            return "";
 //        });
 
-        Spark.get("/raakaAineSivu", (req, res) -> {
+        Spark.get("/raakaAineSivu/", (req, res) -> {
             HashMap map = new HashMap<>();
 //            map.put("raakaAineLista", raakaAineDao.findAll());
 //            map.put("annosLista", annosDao.findAll());
             return new ModelAndView(map, "raakaAineSivu");
         }, new ThymeleafTemplateEngine());
         
-        Spark.post("/raakaAineSivu", (req, res) -> {
+        Spark.post("/raakaAineSivu/", (req, res) -> {
             res.redirect("/raakaAineSivu");
             return "";
         });
