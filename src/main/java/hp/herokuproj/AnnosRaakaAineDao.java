@@ -16,7 +16,7 @@ public class AnnosRaakaAineDao {
         
     }
     
-    public List<Annos> missaTamaRAonKaytetty(RaakaAine ra) throws SQLException, Exception {
+    public List<AnnosRaakaAine> missaTamaRAonKaytetty(RaakaAine ra) throws SQLException, Exception {
         AnnosDao aDao = new AnnosDao();
         RaakaAineDao raDao = new RaakaAineDao();
         Connection conn = getConnection();
@@ -41,10 +41,10 @@ public class AnnosRaakaAineDao {
         stmt.close();
         rs.close();
         conn.close();
-        return aLista;
+        return lista;
     }
     
-    public List<RaakaAine> mitaRAonTassaAnnoksessaOnKaytetty(Annos annos) throws SQLException, Exception {
+    public List<AnnosRaakaAine> mitaRAonTassaAnnoksessaOnKaytetty(Annos annos) throws SQLException, Exception {
         AnnosDao aDao = new AnnosDao();
         RaakaAineDao raDao = new RaakaAineDao();
         Connection conn = getConnection();
@@ -69,7 +69,7 @@ public class AnnosRaakaAineDao {
         stmt.close();
         rs.close();
         conn.close();
-        return raLista;
+        return lista;
     }
     
     public void deleteBasedOnRaakaAine(RaakaAine ra) throws SQLException, Exception {
