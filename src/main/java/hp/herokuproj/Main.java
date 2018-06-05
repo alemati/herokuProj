@@ -29,21 +29,18 @@ public class Main {
             return new ModelAndView(map, "index");
         }, new ThymeleafTemplateEngine());
         
-//        Spark.post("/*", (req, res) -> {
+        
+//        Spark.get("/raakaAineet", (req, res) -> {
+//            HashMap map = new HashMap<>();
+//            map.put("raakaAineLista", raakaAineDao.findAll());
+//            return new ModelAndView(map, "raakaAineet");
+//        }, new ThymeleafTemplateEngine());
+        
+//        Spark.post("/avaaRaakaAineet", (req, res) -> {
 //            res.redirect("/raakaAineet");
 //            return "";
 //        });
-        
-        Spark.get("/raakaAineet", (req, res) -> {
-            HashMap map = new HashMap<>();
-            map.put("raakaAineLista", raakaAineDao.findAll());
-            return new ModelAndView(map, "raakaAineet");
-        }, new ThymeleafTemplateEngine());
-        
-        Spark.post("/avaaRaakaAineet", (req, res) -> {
-            res.redirect("/raakaAineet");
-            return "";
-        });
+
         Spark.get("/raakaAineSivu", (req, res) -> {
             HashMap map = new HashMap<>();
             map.put("raakaAineLista", raakaAineDao.findAll());
@@ -85,15 +82,15 @@ public class Main {
             return "";
         });
         
-        Spark.get("/annokset", (req, res) -> {
-            HashMap map = new HashMap<>();
-            return new ModelAndView(map, "annokset");
-        }, new ThymeleafTemplateEngine());
-        
-        Spark.post("/avaaAnnokset", (req, res) -> {
-            res.redirect("/annokset");
-            return "";
-        });
+//        Spark.get("/annokset", (req, res) -> {
+//            HashMap map = new HashMap<>();
+//            return new ModelAndView(map, "annokset");
+//        }, new ThymeleafTemplateEngine());
+//        
+//        Spark.post("/avaaAnnokset", (req, res) -> {
+//            res.redirect("/annokset");
+//            return "";
+//        });
         
     }
 
