@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <head>
-        <title>index</title>
+        <title>RaakaAineet</title>
         <meta charset="UTF-8">
             <style>
                 body {
@@ -44,14 +44,10 @@
     </head>
 
     <body>
-        <h1>Tervetuloa ravintolaan!</h1>
-        <h4>Alla olevista linkistä pääset lisäämään raaka-aineita ja annoksia.</h4>
-        <a href="/raakaAineet">Raaka-aineet</a>
-        <a href="/annokset">Annokset</a>
         
         <h2>Raaka-aineiden luettelo:</h2>
 
-<!--        <ul style="list-style-type:none">
+        <ul style="list-style-type:none">
             <li th:each="raakaAine: ${raakaAineLista}"><span th:text="${raakaAine.nimi}">nimi</span>
                 <form method="POST" th:action="@{~/raakaAinePoisto/{raakaAineId}(raakaAineId=${raakaAine.id})}" style="display: inline-block">
                     <input type="submit" value="Poista" class="buttonRed" />
@@ -65,6 +61,8 @@
             Nimi:<br/>
             <input type="text" name="nimi"/>
             <input type="submit" value="Lisää" class="buttonGreen" />
-        </form>-->
+        </form>
+        
+        <a href="/*">Pääsivulle</a>
     </body>
 </html>

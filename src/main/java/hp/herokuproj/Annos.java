@@ -21,4 +21,7 @@ public class Annos {
     public String getNimi() {
         return this.nimi;
     }
+    public String getOhje() {
+        return this.ohje;
+    }
 }
