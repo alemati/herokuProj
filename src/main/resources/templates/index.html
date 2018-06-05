@@ -81,8 +81,8 @@
         <h2>Annokset:</h2>
 
         <ul style="list-style-type:none">
-            <li th:each="annos: ${raakaAineLista}"><span th:text="${annos:.nimi}">nimi</span>
-                <form method="POST" th:action="@{~/annosPoisto/{annos:}(annos:=${annos:.id})}" style="display: inline-block">
+            <li th:each="annos: ${raakaAineLista}"><span th:text="${annos.nimi}">nimi</span>
+                <form method="POST" th:action="@{~/annosPoisto/{annos}(annos=${annos.id})}" style="display: inline-block">
                     <input type="submit" value="Poista" class="buttonRed" />
                 </form>
             </li>
