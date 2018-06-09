@@ -9,12 +9,20 @@ public class AnnosRaakaAine {
     private RaakaAineDao raDao;
     private AnnosDao aDao;
     public AnnosRaakaAine(int annosId, int raakaAineId, String maara, String ohje) {
-        this.annosId = annosId;
-        this.raakaAineId = raakaAineId;
-        this.maara = maara;
-        this.ohje = ohje;
-        this.raDao = new RaakaAineDao();
-        this.aDao = new AnnosDao();
+//        this.annosId = annosId;
+//        this.raakaAineId = raakaAineId;
+//        this.maara = maara;
+//        this.ohje = ohje;
+//        this.raDao = new RaakaAineDao();
+//        this.aDao = new AnnosDao();
+    }
+    public AnnosRaakaAine() {
+//        this.annosId = annosId;
+//        this.raakaAineId = raakaAineId;
+//        this.maara = maara;
+//        this.ohje = ohje;
+//        this.raDao = new RaakaAineDao();
+//        this.aDao = new AnnosDao();
     }
     public int getAnnosId() {
         return this.annosId;
