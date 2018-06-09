@@ -116,7 +116,7 @@ public class Main {
             Annos annos = annosDao.findOneById(id);
             RaakaAine raakaAine = raakaAineDao.findOneByName(uusiRaakaAine);
 //            
-//            AnnosRaakaAine annosRaakaAine = new AnnosRaakaAine(annos.getId(), raakaAine.getId(), maara, ohje);
+            AnnosRaakaAine annosRaakaAine = new AnnosRaakaAine(annos.getId(), raakaAine.getId(), maara, ohje);
 //            annosRaakaAineDoa.save(annosRaakaAine);
 //            
             res.redirect("/index3/" + id);
