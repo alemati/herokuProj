@@ -67,16 +67,25 @@ public class Main {
             res.redirect("/index");
             return "";
         });
-        Spark.post("/RAlisaysA", (req, res) -> {
-            int annosId = Integer.parseInt(req.params(":id"));
-            String uusiRaakaAine = req.params("uusiRaakaAine");
-            raakaAineDao.findOneByName(uusiRaakaAine).getId();
-            String maara = req.params("maara");
-            String ohje = req.params("ohje");
-            annosRaakaAineDoa.save(new AnnosRaakaAine(raakaAineDao.findOneByName(uusiRaakaAine).getId(), annosId, maara, ohje));
-            res.redirect("/index3/" + annosId);
+        
+        Spark.post("/annosRaakaAinePoisto", (req, res) -> {
+//            int id = Integer.parseInt(req.params(":id"));
+//            annosRaakaAineDoa.deleteBasedOnRaakaAine(raakaAineDao.findOneById(Integer.parseInt(req.params(":id"))));
+//            raakaAineDao.delete(id);
+//            res.redirect("/index");
             return "";
         });
+        
+//        Spark.post("/RAlisaysA", (req, res) -> {
+//            int annosId = Integer.parseInt(req.params(":id"));
+//            String uusiRaakaAine = req.params("uusiRaakaAine");
+//            raakaAineDao.findOneByName(uusiRaakaAine).getId();
+//            String maara = req.params("maara");
+//            String ohje = req.params("ohje");
+//            annosRaakaAineDoa.save(new AnnosRaakaAine(raakaAineDao.findOneByName(uusiRaakaAine).getId(), annosId, maara, ohje));
+//            res.redirect("/index3/" + annosId);
+//            return "";
+//        });
 
         Spark.get("/index2/:id", (req, res) -> {
             HashMap map = new HashMap<>();
@@ -98,9 +107,18 @@ public class Main {
         Spark.post("/index3/:id", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
             
-            annosRaakaAineDoa.deleteBasedOnAnnos(annosDao.findOneById(Integer.parseInt(req.params(":id"))));
-            annosDao.delete(id);
-            res.redirect("/index");
+            String uusiRaakaAine = req.params("uusiRaakaAine");
+            raakaAineDao.findOneByName(uusiRaakaAine).getId();
+            String maara = req.params("maara");
+            String ohje = req.params("ohje");
+            
+            Annos annos = annosDao.findOneById(id);
+            RaakaAine raakaAine = raakaAineDao.findOneByName(uusiRaakaAine);
+            
+            AnnosRaakaAine annosRaakaAine = new AnnosRaakaAine(annos.getId(), raakaAine.getId(), maara, ohje);
+            annosRaakaAineDoa.save(annosRaakaAine);
+            
+            res.redirect("/index3/:" + id);
             return "";
         });
 
