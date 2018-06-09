@@ -109,6 +109,7 @@ public class Main {
                 Annos annos = annosDao.findOneById(id);
                 RaakaAine raakaAine = raakaAineDao.findOneByName(req.params("uusiRaakaAine"));
                 AnnosRaakaAine aRa = new AnnosRaakaAine(annos.getId(), raakaAine.getId(), req.params("maara"), req.params("ohje"));
+                annosRaakaAineDoa.save(aRa);
             }
 //            
 //            String uusiRaakaAine = req.params("uusiRaakaAine");
