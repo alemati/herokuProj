@@ -86,7 +86,7 @@
         <!--        <form method="POST" action="/index3/${annos.id}">-->
 
 <!--                        th:action="@{~/raakaAinePoisto/{raakaAineId}(raakaAineId=${raakaAine.id})}"-->
-        <form method="POST" action="@{~/index3/{id}(id=${annos.id})}">
+        <form method="POST" th:action="@{~/index3/{id}(id=${annos.id})}">
             <select name="uusiRaakaAine">
                 <p th:each="a: ${vRaakaAineet}">
                     <option><span th:text="${a.getNimi()}">1</span></option>
