@@ -83,8 +83,8 @@
         <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
         <h3>Lisää raaka-aine tälle annokselle</h3>
 
-        <form method="POST" action="/index3/'${annos.id}'">
-            
+        <form method="POST" action="/index3/${annos.id}">
+
             <select name="uusiRaakaAine">
                 <p th:each="a: ${vRaakaAineet}">
                     <option><span th:text="${a.getNimi()}">1</span></option>
@@ -100,7 +100,7 @@
             <br/>
             <input class="buttonGreen" type="submit" value="Lisää">
         </form>
-        
+
         <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
         <p><a href="/index">Etusivulle</a></p>
 
