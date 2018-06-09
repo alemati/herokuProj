@@ -113,8 +113,8 @@ public class Main {
 //            raakaAineDao.findOneByName(uusiRaakaAine).getId();
             
 //            
-//            Annos annos = annosDao.findOneById(id);
-//            RaakaAine raakaAine = raakaAineDao.findOneByName(uusiRaakaAine);
+            Annos annos = annosDao.findOneById(id);
+            RaakaAine raakaAine = raakaAineDao.findOneByName(uusiRaakaAine);
 //            
 //            AnnosRaakaAine annosRaakaAine = new AnnosRaakaAine(annos.getId(), raakaAine.getId(), maara, ohje);
 //            annosRaakaAineDoa.save(annosRaakaAine);
