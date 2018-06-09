@@ -108,9 +108,10 @@ public class Main {
             int id = Integer.parseInt(req.params(":id"));
 //            
             String uusiRaakaAine = req.params("uusiRaakaAine");
-            raakaAineDao.findOneByName(uusiRaakaAine).getId();
             String maara = req.params("maara");
             String ohje = req.params("ohje");
+//            raakaAineDao.findOneByName(uusiRaakaAine).getId();
+            
 //            
 //            Annos annos = annosDao.findOneById(id);
 //            RaakaAine raakaAine = raakaAineDao.findOneByName(uusiRaakaAine);
