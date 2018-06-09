@@ -106,18 +106,18 @@ public class Main {
         
         Spark.post("/index3/:id", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
-            
-            String uusiRaakaAine = req.params("uusiRaakaAine");
-            raakaAineDao.findOneByName(uusiRaakaAine).getId();
-            String maara = req.params("maara");
-            String ohje = req.params("ohje");
-            
-            Annos annos = annosDao.findOneById(id);
-            RaakaAine raakaAine = raakaAineDao.findOneByName(uusiRaakaAine);
-            
-            AnnosRaakaAine annosRaakaAine = new AnnosRaakaAine(annos.getId(), raakaAine.getId(), maara, ohje);
-            annosRaakaAineDoa.save(annosRaakaAine);
-            
+//            
+//            String uusiRaakaAine = req.params("uusiRaakaAine");
+//            raakaAineDao.findOneByName(uusiRaakaAine).getId();
+//            String maara = req.params("maara");
+//            String ohje = req.params("ohje");
+//            
+//            Annos annos = annosDao.findOneById(id);
+//            RaakaAine raakaAine = raakaAineDao.findOneByName(uusiRaakaAine);
+//            
+//            AnnosRaakaAine annosRaakaAine = new AnnosRaakaAine(annos.getId(), raakaAine.getId(), maara, ohje);
+//            annosRaakaAineDoa.save(annosRaakaAine);
+//            
             res.redirect("/index");
             return "";
         });
