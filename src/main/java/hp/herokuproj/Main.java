@@ -118,7 +118,7 @@ public class Main {
 //            AnnosRaakaAine annosRaakaAine = new AnnosRaakaAine(annos.getId(), raakaAine.getId(), maara, ohje);
 //            annosRaakaAineDoa.save(annosRaakaAine);
 //            
-            res.redirect("/index");
+            res.redirect("/index/" + id);
             return "";
         });
 
