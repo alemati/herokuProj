@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <head>
-        <title>index2</title>
+        <title>index3</title>
         <meta charset="UTF-8">
             <style>
                 body {
@@ -83,8 +83,10 @@
         <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
         <h3>Lisää raaka-aine tälle annokselle</h3>
 
-        <form method="POST" action="/index3/${annos.id}">
+        <!--        <form method="POST" action="/index3/${annos.id}">-->
 
+        {raakaAineId}(raakaAineId=${raakaAine.id})
+        <form method="POST" action="/index3/{id}(id=${annos.id})">
             <select name="uusiRaakaAine">
                 <p th:each="a: ${vRaakaAineet}">
                     <option><span th:text="${a.getNimi()}">1</span></option>
