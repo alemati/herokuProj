@@ -126,18 +126,6 @@ public class Main {
                 AnnosRaakaAine aRa = new AnnosRaakaAine(annos.getId(), raakaAine.getId(), req.queryParams("maara"), req.queryParams("ohje"));
                 annosRaakaAineDoa.save(aRa);
             }
-
-
-//            raakaAineDao.save(new RaakaAine(raakaAineDao.viimeinenId() + 1, req.queryParams("uusiRaakaAine")));
-//            
-//            String uusiRaakaAine = req.params("uusiRaakaAine");
-//            String maara = req.params("maara");
-//            String ohje = req.params("ohje");
-//            raakaAineDao.findOneByName(uusiRaakaAine).getId();
-
-//            
-//            annosRaakaAineDoa.save(annosRaakaAine);
-//            
             res.redirect("/index3/" + id);
             return "";
         });

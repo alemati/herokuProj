@@ -74,7 +74,7 @@
         <ul style="list-style-type:none">
 
             <li th:each="aRa: ${annosRaakaAineet}">
-                <p><span th:text="${aRa.RaakaAineNimi}">nimi</span></p>
+                <span th:text="${aRa.RaakaAineNimi}">nimi</span>
 <!--                <form method="POST" th:action="@{~/deletePair/{raakaAineId}(raakaAineId=${raakaAine.id})}">
                     <input type="submit" value="Poista" class="buttonRed" />
                 </form>-->
@@ -92,13 +92,15 @@
                                 </form>-->
 
 
-                <br/>Määrä:
+<!--                <br/>Määrä:
                 <span th:text="${ra.maara}">maara</span>
                 <br/>Ohje:
                 <span th:text="${ra.ohje}">ohje</span>
-                <h4>-=-=-=-=-=-</h4>
+                <h4>-=-=-=-=-=-</h4>-->
             </li>
         </ul> 
+        
+        
         <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
         <h3>Lisää raaka-aine tälle annokselle</h3>
 
