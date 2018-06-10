@@ -81,9 +81,7 @@
                 <!--                <form method="POST" th:action="@{~/ainePoistoAnnoksesta/{raId}/{annosId}(raId=${ra.id},annosId=${annos.id})}" style="display: inline-block">
                                     <input type="submit" value="Poista" class="buttonRed" />
                                 </form>-->
-
-                <form method="POST" th:action="@{~/deletePair/{raId}(raId=${ra.id})}" th:object="${annos}" style="display: inline-block">
-                      <input type="hidden" name="annosId" value="*{annos.id}">
+                <form method="POST" th:action="@{~/deletePair/{ra}(ra=${ra.id})}" style="display: inline-block">
                       <input type="submit" value="Poista" class="buttonRed" />
                 </form>
 
