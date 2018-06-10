@@ -75,11 +75,12 @@ public class Main {
             return "";
         });
         
-        Spark.post("/deletePair/:idRA", (req, res) -> {
+        Spark.post("/deletePair/:idRA/:idA", (req, res) -> {
             int idRA = Integer.parseInt(req.params(":idRA"));
+            int idA = Integer.parseInt(req.params(":idA"));
 //            int idA = Integer.parseInt(req.queryParams("annosId"));
-//            annosRaakaAineDoa.deletePair(annosDao.findOneById(idA), raakaAineDao.findOneById(idRA));
-            res.redirect("/index2/" + idRA);
+            annosRaakaAineDoa.deletePair(annosDao.findOneById(idA), raakaAineDao.findOneById(idRA));
+            res.redirect("/index3/" + idA);
             return "";
         });
 
