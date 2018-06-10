@@ -74,7 +74,7 @@
         <ul style="list-style-type:none">
             <li th:each="ra: ${raakaAineet}">
                 <span th:text="${ra.RaakaAineNimi}">nimi</span>
-                <form method="POST" th:action="@{~/ainePoistoAnnoksesta/+'{raId}(raId=${ra.id})'+/{annosId}(annosId=${annos.id})}" style="display: inline-block">
+                <form method="POST" th:action="@{~/ainePoistoAnnoksesta/{raId}(raId=${ra.id})/{annosId}(annosId=${annos.id})}" style="display: inline-block">
                     <input type="submit" value="Poista" class="buttonRed" />
                 </form>
                 <br/>
