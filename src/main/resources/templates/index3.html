@@ -75,23 +75,10 @@
 
             <li th:each="aRa: ${annosRaakaAineet}">
                 <span th:text="${aRa.RaakaAineNimi}">nimi</span>
-                <form method="POST" th:action="@{~/deletePair/{raakaAineId}/{annosId}(raakaAineId=${aRa.RaakaAineId},annosId=${annos.id})}">
+                <form method="POST" th:action="@{~/deletePair/{raakaAineId}/{annosId}(raakaAineId=${aRa.RaakaAineId},annosId=${annos.id})}" style="display: inline-block">
                     <input type="submit" value="Poista" class="buttonRed" />
                 </form>
                 
-
-
-                <!--                                <form method="POST" th:action="@{~/ainePoistoAnnoksesta/{raId}(raId=${ra.id})/{annosId}(annosId=${annos.id})}" style="display: inline-block">-->
-
-
-                <!--                <form method="POST" th:action="@{~/ainePoistoAnnoksesta/{raId}/{annosId}(raId=${ra.id},annosId=${annos.id})}" style="display: inline-block">
-                                    <input type="submit" value="Poista" class="buttonRed" />
-                                </form>-->
-                <!--                <form method="POST" th:action="@{~/deletePair/{ra}(ra=${ra.id})}" style="display: inline-block">
-                                      <input type="submit" value="Poista" class="buttonRed" />
-                                </form>-->
-
-
                 <br/>Määrä:
                 <span th:text="${aRa.maara}">maara</span>
                 <br/>Ohje:
@@ -100,11 +87,8 @@
             </li>
         </ul> 
         
-        
         <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
         <h3>Lisää raaka-aine tälle annokselle</h3>
-
-
 
         <form method="POST" th:action="@{~/index3/{id}(id=${annos.id})}">
             <select name="uusiRaakaAine">
@@ -117,7 +101,9 @@
             Määrä (esim: 2 kpl tai 3 tl tai 1 dl):
             <br/><input type="text" name="maara"/><br/>
             Ohje:
-            <br/><input type="text" name="ohje" /><br/>
+            <br/>
+<!--            <br/><input type="text" name="ohje" /><br/>-->
+            <p><textarea rows="4" cols="40" name="ohje"></textarea></p>
             <br/>
             <input class="buttonGreen" type="submit" value="Lisää">
         </form>
