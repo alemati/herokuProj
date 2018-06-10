@@ -67,6 +67,13 @@ public class Main {
             res.redirect("/index");
             return "";
         });
+        Spark.post("/ainePoistoAnnoksesta/:idRA/:idA", (req, res) -> {
+            int idRA = Integer.parseInt(req.params(":idRA"));
+            int idA = Integer.parseInt(req.params(":idA"));
+            annosRaakaAineDoa.deletePair(annosDao.findOneById(idA), raakaAineDao.findOneById(idRA));
+            res.redirect("/index3/" + idA);
+            return "";
+        });
 
         Spark.post("/annosRaakaAinePoisto", (req, res) -> {
 //            int id = Integer.parseInt(req.params(":id"));

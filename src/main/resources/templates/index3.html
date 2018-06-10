@@ -74,6 +74,9 @@
         <ul style="list-style-type:none">
             <li th:each="ra: ${raakaAineet}">
                 <span th:text="${ra.RaakaAineNimi}">nimi</span>
+                <form method="POST" th:action="@{~/ainePoistoAnnoksesta/{raakaAineId}(raakaAineId=${ra.id})/{annosId}(annosId=${annos.id})}" style="display: inline-block">
+                    <input type="submit" value="Poista" class="buttonRed" />
+                </form>
                 <span th:text="${ra.maara}">maara</span>
                 <br/>Ohje:
                 <span th:text="${ra.ohje}">ohje</span>
@@ -83,9 +86,8 @@
         <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
         <h3>Lisää raaka-aine tälle annokselle</h3>
 
-        <!--        <form method="POST" action="/index3/${annos.id}">-->
 
-<!--                        th:action="@{~/raakaAinePoisto/{raakaAineId}(raakaAineId=${raakaAine.id})}"-->
+
         <form method="POST" th:action="@{~/index3/{id}(id=${annos.id})}">
             <select name="uusiRaakaAine">
                 <p th:each="a: ${vRaakaAineet}">

@@ -90,6 +90,16 @@ public class AnnosRaakaAineDao {
         conn.close();
     }
     
+    public void deletePair(Annos a, RaakaAine ra) throws SQLException, Exception {
+        Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM AnnosRaakaAine WHERE annos_id = (?) AND raakaAine_id = (?);");
+        stmt.setInt(1, a.getId());
+        stmt.setInt(2, ra.getId());
+        stmt.executeUpdate();
+        stmt.close();
+        conn.close();
+    }
+    
     public void save(AnnosRaakaAine ra) throws SQLException, Exception {
         Connection conn = getConnection();
         PreparedStatement stmt
