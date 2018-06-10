@@ -72,12 +72,22 @@
         <h3>-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-</h3>
         <h3>Tässä reseptissä käytetyt raaka-aineet: </h3>
         <ul style="list-style-type:none">
+
             <li th:each="ra: ${raakaAineet}">
                 <span th:text="${ra.RaakaAineNimi}">nimi</span>
-<!--                <form method="POST" th:action="@{~/ainePoistoAnnoksesta/{raId}(raId=${ra.id})/{annosId}(annosId=${annos.id})}" style="display: inline-block">-->
-                <form method="POST" th:action="@{~/ainePoistoAnnoksesta/{raId}/{annosId}(raId=${ra.id},annosId=${annos.id})}" style="display: inline-block">
-                    <input type="submit" value="Poista" class="buttonRed" />
+<!--                                <form method="POST" th:action="@{~/ainePoistoAnnoksesta/{raId}(raId=${ra.id})/{annosId}(annosId=${annos.id})}" style="display: inline-block">-->
+
+
+                <!--                <form method="POST" th:action="@{~/ainePoistoAnnoksesta/{raId}/{annosId}(raId=${ra.id},annosId=${annos.id})}" style="display: inline-block">
+                                    <input type="submit" value="Poista" class="buttonRed" />
+                                </form>-->
+
+                <form method="POST" th:action="@{~/deletePair/{raId}(raId=${ra.id})}" th:object="${annos}" style="display: inline-block">
+                      <input type="hidden" name="annosId" value="*{annos.id}">
+                      <input type="submit" value="Poista" class="buttonRed" />
                 </form>
+
+
                 <br/>
                 <span th:text="${ra.maara}">maara</span>
                 <br/>Ohje:
