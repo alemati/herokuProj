@@ -105,13 +105,15 @@ public class Main {
 
         Spark.post("/index3/:id", (req, res) -> {
             int id = Integer.parseInt(req.params(":id"));
-//            if (req.params("uusiRaakaAine") != null && req.params("maara") != null && req.params("ohje") != null) {
-//                Annos annos = annosDao.findOneById(id);
-//                RaakaAine raakaAine = raakaAineDao.findOneByName(req.params("uusiRaakaAine"));
-//                AnnosRaakaAine aRa = new AnnosRaakaAine(annos.getId(), raakaAine.getId(), req.params("maara"), req.params("ohje"));
-//                annosRaakaAineDoa.save(aRa);
-//            }
-            raakaAineDao.save(new RaakaAine(raakaAineDao.viimeinenId() + 1, req.queryParams("uusiRaakaAine")));
+            if (req.queryParams("uusiRaakaAine") != null && req.queryParams("maara") != null && req.queryParams("ohje") != null) {
+                Annos annos = annosDao.findOneById(id);
+                RaakaAine raakaAine = raakaAineDao.findOneByName(req.queryParams("uusiRaakaAine"));
+                AnnosRaakaAine aRa = new AnnosRaakaAine(annos.getId(), raakaAine.getId(), req.queryParams("maara"), req.queryParams("ohje"));
+                annosRaakaAineDoa.save(aRa);
+            }
+
+
+//            raakaAineDao.save(new RaakaAine(raakaAineDao.viimeinenId() + 1, req.queryParams("uusiRaakaAine")));
 //            
 //            String uusiRaakaAine = req.params("uusiRaakaAine");
 //            String maara = req.params("maara");
