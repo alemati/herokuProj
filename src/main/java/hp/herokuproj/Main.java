@@ -111,7 +111,7 @@ public class Main {
 //                AnnosRaakaAine aRa = new AnnosRaakaAine(annos.getId(), raakaAine.getId(), req.params("maara"), req.params("ohje"));
 //                annosRaakaAineDoa.save(aRa);
 //            }
-            raakaAineDao.save(new RaakaAine(raakaAineDao.viimeinenId() + 1, req.queryParams("nimi")));
+            raakaAineDao.save(new RaakaAine(raakaAineDao.viimeinenId() + 1, req.queryParams("uusiRaakaAine")));
 //            
 //            String uusiRaakaAine = req.params("uusiRaakaAine");
 //            String maara = req.params("maara");
