@@ -114,7 +114,7 @@ public class Main {
             Integer userId = Integer.parseInt(req.params(":id"));
             map.put("annos", annosDao.findOneById(userId));
             map.put("raakaAineet", annosRaakaAineDoa.mitaRAonTassaAnnoksessaOnKaytetty(annosDao.findOneById(Integer.parseInt(req.params(":id")))));
-            map.put("vRaakaAineet", raakaAineDao.findAll());
+//            map.put("vRaakaAineet", raakaAineDao.findAll());
             return new ModelAndView(map, "index3");
         }, new ThymeleafTemplateEngine());
 
