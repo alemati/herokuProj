@@ -73,8 +73,8 @@
         <h3>Tässä reseptissä käytetyt raaka-aineet: </h3>
         <ul style="list-style-type:none">
 
-            <li th:each="raakaAine: ${raakaAineet}">
-                <span th:text="${raakaAine.RaakaAineNimi}">nimi</span>
+            <li th:each="aRa: ${annosRaakaAineet}">
+                <p><span th:text="${aRa.RaakaAineNimi}">nimi</span></p>
 <!--                <form method="POST" th:action="@{~/deletePair/{raakaAineId}(raakaAineId=${raakaAine.id})}">
                     <input type="submit" value="Poista" class="buttonRed" />
                 </form>-->
